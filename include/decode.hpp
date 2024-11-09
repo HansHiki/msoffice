@@ -81,6 +81,8 @@ inline bool VerifyIntegrity(
 
 	cybozu::crypto::Hmac hmac(keyData.hashName);
 	std::string ret = hmac.eval(salt, encryptedPackage);
+	// print Hmac Value:
+	printf("Hmac= "); dump(ret, false);
 	return ret == expected;
 }
 
